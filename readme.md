@@ -32,10 +32,11 @@
 
 ## Docker
 
-1. Побудуйте та запустіть Docker compose:
+1. Побудуйте та запустіть Docker:
     ```sh
-    docker compose up -d --build
-    ```
+    docker build -t film-management-system .
+    docker run -p 80:80 film-management-system
+       ```
 
 ## Структура проекту
 

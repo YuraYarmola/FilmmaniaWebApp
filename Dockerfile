@@ -28,4 +28,8 @@ RUN python -m venv /py && \
 COPY ./requirements.txt /app
 RUN /py/bin/pip install --no-cache-dir -r requirements.txt
 
+RIN /py/bin/pip install gunicorn
+
 COPY ./ /app
+
+CMD ["gunicorn", "--bind", "0.0.0.0:80", "Film.wsgi:application"]
