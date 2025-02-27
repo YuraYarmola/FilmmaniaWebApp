@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-zw*whzi7j_qdqg#stw)qtl718ytsd0@8k2*!!!1=&p)=8cgx=a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', "filmmaniawebapp-production.up.railway.app"]
 
 # Application definition
 
