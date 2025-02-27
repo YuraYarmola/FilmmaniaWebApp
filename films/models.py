@@ -14,8 +14,8 @@ class Film(models.Model):
     plot = models.TextField()
     rating = models.FloatField(default=50)
 
-    actors = models.ManyToManyField(Actor, null=True, blank=True)
-    director = models.ManyToManyField(Director, null=True, blank=True)
+    actors = models.ManyToManyField(Actor, blank=True)
+    director = models.ManyToManyField(Director, blank=True)
 
     poster = models.ImageField(upload_to='posters/%m-%d/', null=True, blank=True)
 
