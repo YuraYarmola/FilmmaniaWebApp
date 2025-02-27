@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-zw*whzi7j_qdqg#stw)qtl718ytsd0@8k2*!!!1=&p)=8cgx=a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', "filmmaniawebapp-production.up.railway.app"]
 
