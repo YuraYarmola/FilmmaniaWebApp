@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}КІНОМАНІЯ{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'films/css/style.css' %}">
+    <script defer src="{% static 'films/js/script.js' %}"></script>
+    <script defer src="{% static 'films/js/app.js' %}"></script>
+
+</head>
+<body>
+
+
+<header>
+        <h1>КІНОМАНІЯ</h1>
+        <nav>
+            <ul class="menu">
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">☰ Меню</a>
+                    <ul class="dropdown-content">
+                        <li><a href="{% url 'film_list' %}">Фільми</a></li>
+                        <li><a href="{% url 'actor_list' %}">Актори</a></li>
+                        <li><a href="{% url 'director_list' %}">Режисери</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+<!-- particles.js container -->
+<div id="particles-js">
+</div>
+<div id="content">
+        {% block content %}{% endblock %}
+</div>
+<!-- scripts -->
+<script src="{% static 'films/js/particles.js' %}"></script>
+<script src="{% static 'films/js/app.js' %}"></script>
+
+
+    <footer>
+       <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+        {% if page_obj.paginator %}
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+        {% endif %}
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+        {% block footer %}{% endblock %}
+    </footer>
+
+    <div id="overlay"></div>
+</body>
+</html>

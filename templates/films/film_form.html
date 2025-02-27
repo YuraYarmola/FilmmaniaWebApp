@@ -1,0 +1,12 @@
+<!-- films/templates/films/film_form.html -->
+{% extends 'films/base.html' %}
+
+{% block content %}
+<h1>Films Editor</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" value="Save" class="details-button">Submit</button>
+</form>
+
+{% endblock %}

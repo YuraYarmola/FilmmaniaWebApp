@@ -1,0 +1,46 @@
+<!-- films/templates/films/film_detail.html -->
+{% extends 'films/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="film-detail-container">
+        <div class="film-detail-info">
+            <h1>{{ film.title }}</h1>
+
+            <div class="film-detail-main-info">
+                {% if film.poster %}
+                    <img src="{{ film.poster.url }}" alt="{{ film.title }} Poster" class="film-detail-poster">
+                {% endif %}
+
+                <div class="film-detail-main-text">
+                    <p><strong>Дата виходу:</strong> {{ film.release_date }}</p>
+                    <p><strong>Мова:</strong> {{ film.language }}</p>
+                    <p><strong>Країна:</strong> {{ film.country }}</p>
+                    <p><strong>Сюжет:</strong> {{ film.plot }}</p>
+                    <p><strong>Рейтинг:</strong> <span id="rating">{{ film.rating }}</span></p>
+
+                    <p><strong>Актори:</strong>
+                        {% for actor in film.actors.all %}
+                            {{ actor.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+
+                    <p><strong>Режисери:</strong>
+                        {% for director in film.director.all %}
+                            {{ director.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
+
+            <div class="film-detail-description">
+                <p>{{ film.description }}</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'films/js/script.js' %}"></script>
+{% endblock %}

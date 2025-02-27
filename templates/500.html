@@ -1,0 +1,9 @@
+<!-- templates/404.html -->
+
+{% extends 'films/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>500 - Щось пішло не так(</h1>
+     <button onclick="location.href='{% url 'film_list' %}'">Повернутися на головну</button>
+{% endblock %}

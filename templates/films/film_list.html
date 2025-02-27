@@ -1,0 +1,55 @@
+<!-- films/templates/films/film_list.html -->
+{% extends 'films/base.html' %}
+
+{% block content %}
+<a href="{% url 'film_create' %}" class="details-button"  target="_blank">Add Film</a>
+<br>
+<br>
+<h3 class="filters-title">Фільтри:</h3>
+<button id="toggle-filters" class="toggle-btn">Показати фільтри</button> <!-- Кнопка для перемикання -->
+<div class="filters-container" id="filters-container">
+    <form method="get">
+        {{ filter.form.as_p }}
+        <button type="submit">Застосувати фільтри</button>
+        <button type="button" id="reset-filters" class="reset-btn">Скинути фільтри</button> <!-- Кнопка для скидання -->
+
+    </form>
+</div>
+<br>
+
+
+<br>
+
+<h2>Список фільмів</h2>
+    {% for film in films %}
+
+        <div class="film-item">
+            <h3>{{ film.title }}</h3>
+            <a href="{% url 'edit_film' film.id %}" class="edit_film">
+                Редагувати
+            </a>
+            <a href="{% url 'delete_film' film.id %}" class="button_delete">
+                Видалити
+            </a>
+
+            <div class="film-detail-main-info">
+            {% if film.poster %}
+                <img src="{{ film.poster.url }}" alt="{{ film.title }} Poster" class="film-list-poster">
+            {% endif %}
+                <div class="film-detail-main-text">
+            <p><strong>Дата виходу:</strong> {{ film.release_date }}</p>
+
+            <p>{{ film.description|truncatewords:100}}</p>
+                    </div>
+            </div>
+
+            <a href="{% url 'film_detail' film.id %}">
+                <button type="button" class="details-button">Детальніше</button>
+            </a>
+
+        </div>
+    {% endfor %}
+
+
+{% endblock %}
+
