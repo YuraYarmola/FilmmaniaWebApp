@@ -25,8 +25,11 @@ SECRET_KEY = 'django-insecure-zw*whzi7j_qdqg#stw)qtl718ytsd0@8k2*!!!1=&p)=8cgx=a
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhgost', '127.0.0.1', "filmmaniawebapp-production.up.railway.app"]
-CSRF_TRUSTED_ORIGINS = ['localhost', '127.0.0.1', "filmmaniawebapp-production.up.railway.app"]
-# Application definition
+CSRF_TRUSTED_ORIGINS = [
+    "https://filmmaniawebapp-production.up.railway.app",
+    "http://localhost",
+    "http://127.0.0.1"
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
